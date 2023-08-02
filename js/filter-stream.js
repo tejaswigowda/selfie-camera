@@ -78,7 +78,7 @@ class FilterStream {
     maskCtx.drawImage(this.video, 0, 0);
 
     imageSegmenter.segment(maskCanvas, function (segmentation) {
-      console.log(segmentation);
+      //console.log(segmentation);
 
       let imageData = maskCtx.getImageData(0, 0, maskCanvas.width, maskCanvas.height).data;
       const mask = segmentation.categoryMask.getAsUint8Array();
