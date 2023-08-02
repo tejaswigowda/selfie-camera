@@ -16,10 +16,11 @@ async function createImageSegmenter() {
   imageSegmenter = await ImageSegmenter.createFromOptions(vision, {
     baseOptions: {
       modelAssetPath:
-        "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite?generation=1661875711618421",
+       // "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite",
+        "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter_landscape/float16/latest/selfie_segmenter_landscape.tflite",
     },
     outputCategoryMask: true,//true,
-    outputConfidenceMasks: true,//false,
+    outputConfidenceMasks: false,
     runningMode: runningMode
   });
 
@@ -88,7 +89,7 @@ class FilterStream {
 
       for (let i in mask) {
 
-        if (mask[i] != 0) continue;
+        if (mask[i] == 0) continue;
         imageData[i * 4] = 0//legendColor[0]//(legendColor[0] + imageData[i * 4]) / 2;
         imageData[i * 4 + 1] = 0//legendColor[1]//(legendColor[1] + imageData[i * 4 + 1]) / 2;
         imageData[i * 4 + 2] = 0//legendColor[2]//(legendColor[2] + imageData[i * 4 + 2]) / 2;
