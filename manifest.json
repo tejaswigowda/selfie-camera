@@ -1,0 +1,31 @@
+{
+  "name": "Selfie Cam",
+  "version": "1.0.0",
+  "minimum_chrome_version": "10.0",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "description": "Select a virtual webcam to use in Google Meet, Zoom, Skype, and other video conferencing software.",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/inject.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+  "manifest_version": 2,
+  "web_accessible_resources": [
+    "*"
+  ]
+}
