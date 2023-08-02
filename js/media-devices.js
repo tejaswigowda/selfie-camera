@@ -1,4 +1,4 @@
-window.doSegmentation = false;
+window.doSegmentation = true;
 var outCanvas = document.createElement('canvas');
 window.outCanvas = outCanvas;
 var outCtx = outCanvas.getContext('2d');
@@ -9,7 +9,7 @@ window.outCtx = outCtx;
 import { FilterStream } from './filter-stream.js';
 
 // Ideally we'd use an editor or import shaders directly from the API.
-import { testFilter as shader } from './shaders/test-filter6.js';
+import { testFilter as shader } from './shaders/test-filter4.js';
 //import { distortedTV as shader } from './distorted-tv.js';
 //import { moneyFilter as shader } from './money-filter.js';
 

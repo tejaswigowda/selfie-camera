@@ -186,15 +186,10 @@ class ShaderRenderer {
 
 
       if(window.shaderCanvas){
-        var base64 = window.shaderCanvas.toDataURL();
-        console.log(base64);
         window.outCtx.drawImage(this.canvas, 0, 0);
-
-
         if(window.doSegmentation) {
           window.outCtx.drawImage(window.maskCanvas, 0, 0);
         }
-
       }
   
       // get base64 image
