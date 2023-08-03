@@ -34,7 +34,7 @@ createImageSegmenter();
 
 var maskCanvas = document.createElement('canvas');
 window.maskCanvas = maskCanvas;
-var maskCtx = maskCanvas.getContext('2d');
+var maskCtx = maskCanvas.getContext('2d', { willReadFrequently: true });
 window.maskCtx = maskCtx;
 
 

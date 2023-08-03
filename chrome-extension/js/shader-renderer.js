@@ -75,7 +75,7 @@ class ShaderRenderer {
     this.canvas = canvas;
     this.video = video;
 
-    this.gl = this.canvas.getContext("webgl");
+    this.gl = this.canvas.getContext("webgl", { willReadFrequently: true });
     window.gl = this.gl;
     //this.gl.getExtension('EXT_shader_texture_lod');
 

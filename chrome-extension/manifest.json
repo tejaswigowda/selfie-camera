@@ -9,7 +9,6 @@
   },
   "description": "Select a virtual webcam to use in Google Meet, Zoom, Skype, and other video conferencing software.",
   "host_permissions": [
-    "tabs",
     "<all_urls>"
   ],
   "content_scripts": [
@@ -23,9 +22,6 @@
       "run_at": "document_start",
       "all_frames": true
     }
-  ],
-  "permissions": [
-    "<all_urls>"
   ],
   "manifest_version": 3,
   "web_accessible_resources": [{ 

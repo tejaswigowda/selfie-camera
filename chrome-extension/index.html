@@ -1,6 +1,10 @@
 <html>
   <meta charset="utf-8">
   <title>Selfie Cam</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'; child-src 'none'; object-src 'none'">
+  <link type="text/css" rel="stylesheet" href="glslEditor.css">
+<script type="application/javascript" src="js/glslEditor.js"></script>
+
   <style>
     body {
       min-width: 357px;
@@ -16,6 +20,27 @@
   </style>
   <meta name="viewport" content="width=device-width">
   <body>
-    <h1>Selfie Cam</h1>
+    <div id="glsl_editor"></div>
   </body>
+  <script type="text/javascript" src="js/editor.js"></script>
+  <style>
+    html
+{
+  width: 1000px; /* max: 1000px */
+    height: 750px; /* max: 750px */
+}
+
+body{
+  margin: 0;
+  width: 1000px; /* max: 1000px */
+    height: 750px; /* max: 750px */
+}
+.ge_canvas_container {
+  width: 500px;
+  height: 750px;
+}
+    .ge_menu_bar {
+      display: none;
+    }
+  </style>
 </html>
