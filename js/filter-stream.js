@@ -16,11 +16,12 @@ async function createImageSegmenter() {
   imageSegmenter = await ImageSegmenter.createFromOptions(vision, {
     baseOptions: {
       modelAssetPath:
-       // "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite",
-        "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter_landscape/float16/latest/selfie_segmenter_landscape.tflite",
+      //"https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite",
+      // "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite",
+      "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter_landscape/float16/latest/selfie_segmenter_landscape.tflite",
     },
     outputCategoryMask: true,//true,
-    outputConfidenceMasks: false,
+    outputConfidenceMasks: true,
     runningMode: runningMode
   });
 
@@ -82,18 +83,24 @@ class FilterStream {
       //console.log(segmentation);
 
       let imageData = maskCtx.getImageData(0, 0, maskCanvas.width, maskCanvas.height).data;
-      const mask = segmentation.categoryMask.getAsUint8Array();
+      var mask = segmentation.categoryMask.getAsUint8Array();
+
+      // get confidence mask
+      //mask = segmentation.confidenceMasks[0].getAsUint8Array();
+      //console.log(mask);
+
+
 
       //const mask = segmentation.confidenceMask.getAsUint8Array();
      //console.log(mask);
 
       for (let i in mask) {
-
-        if (mask[i] == 0) continue;
+        if (mask[i] > 1){
         imageData[i * 4] = 0//legendColor[0]//(legendColor[0] + imageData[i * 4]) / 2;
         imageData[i * 4 + 1] = 0//legendColor[1]//(legendColor[1] + imageData[i * 4 + 1]) / 2;
         imageData[i * 4 + 2] = 0//legendColor[2]//(legendColor[2] + imageData[i * 4 + 2]) / 2;
         imageData[i * 4 + 3] = 0//legendColor[3]//(legendColor[3] + imageData[i * 4 + 3]) / 2;
+        }
       }
       const uint8Array = new Uint8ClampedArray(imageData.buffer);
       const dataNew = new ImageData(uint8Array, maskCanvas.width, maskCanvas.height);
