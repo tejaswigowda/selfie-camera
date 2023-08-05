@@ -24,10 +24,8 @@
     }
   ],
   "manifest_version": 3,
-  "web_accessible_resources": [{ 
-    "resources": ["<all_urls>"],
-    "matches": ["<all_urls>"]
-  }],
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png",
@@ -35,9 +33,18 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/*"],
+      "resources": ["js/*", "node_modules/*", "node_modules/@mediapipe/tasks-vision/vision.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["<all_urls>"],
       "matches": ["<all_urls>"]
     }
+
   ]
 }
 

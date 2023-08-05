@@ -3,7 +3,10 @@ import { ShaderRenderer } from './shader-renderer.js';
 import {
   FilesetResolver,
   ImageSegmenter
-} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+} 
+ from "./tasks-vision@0.10.0.js";
+
+//from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 
 var runningMode = "IMAGE";
 var imageSegmenter;
@@ -11,6 +14,7 @@ var imageSegmenter;
 async function createImageSegmenter() {
   const vision = await FilesetResolver.forVisionTasks(
     "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+    //"./node_modules/@mediapipe/tasks-vision/wasm"
   );
 
   imageSegmenter = await ImageSegmenter.createFromOptions(vision, {
