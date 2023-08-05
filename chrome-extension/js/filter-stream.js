@@ -10,15 +10,15 @@ var imageSegmenter;
 
 async function createImageSegmenter() {
   const vision = await FilesetResolver.forVisionTasks(
-    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
   );
 
   imageSegmenter = await ImageSegmenter.createFromOptions(vision, {
     baseOptions: {
       modelAssetPath:
-      //"https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite",
-      // "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite",
-      "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter_landscape/float16/latest/selfie_segmenter_landscape.tflite",
+      //"https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite"
+      // "https://storage.googleapis.com/mediapipe-assets/deeplabv3.tflite"
+      "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter_landscape/float16/latest/selfie_segmenter_landscape.tflite"
     },
     outputCategoryMask: true,//true,
     outputConfidenceMasks: true,

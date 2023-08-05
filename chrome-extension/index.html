@@ -2,8 +2,11 @@
   <meta charset="utf-8">
   <title>Selfie Cam</title>
   <meta http-equiv="Content-Security-Policy" content="script-src 'self'; child-src 'none'; object-src 'none'">
-  <link type="text/css" rel="stylesheet" href="glslEditor.css">
-<script type="application/javascript" src="js/glslEditor.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
   <style>
     body {
@@ -20,31 +23,45 @@
   </style>
   <meta name="viewport" content="width=device-width">
   <body>
-    <div id="glsl_editor"></div>
+
+    <div id="shaderListWrapper">
+      <h1 style="font-size: 20px; height: 20px;text-align:center; margin:0 0 10px; text-transform: uppercase;">Shader Cam</h1>  
+      <a class="waves-effect waves-light btn blue" style='width:100%' id="addShader">Add Shader</a>
+      <div id="shaderList"></div>
+    </div>
+    <div id="shaderEditor">
+      <div id="editor"></div>
+    </div>
   </body>
-  <script type="text/javascript" src="js/editor.js"></script>
   <style>
     html
 {
-  width: 1000px; /* max: 1000px */
-    height: 750px; /* max: 750px */
+  width: 800px; 
+  height: 600px;
 }
 
 body{
   margin: 0;
-  width: 1000px; /* max: 1000px */
-    height: 750px; /* max: 750px */
+  width: 100vw; 
+  height: 100vh; 
 }
-.ge_canvas_container {
-  width: 400px;
-  height: 750px;
+#shaderListWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #212121;
+  color: aliceblue;
 }
-.ge_editor{
-  width: 400px;
-  height: 750px;
-}
-    .ge_menu_bar {
-      display: none;
-    }
+
+#shaderEditor {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: calc(100% - 300px);
+  height: 100%;
+  background-color: #555;
+  color: rgb(128, 186, 236);
   </style>
 </html>

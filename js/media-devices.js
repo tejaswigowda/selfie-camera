@@ -10,7 +10,12 @@ import { FilterStream } from './filter-stream.js';
 
 // Ideally we'd use an editor or import shaders directly from the API.
 // import { testFilter as shader } from './shaders/test-filter1.js';
-import { testFilter as shader } from './shaders/zeroVideo/test-filter6.js';
+var sf = './shaders/zeroVideo/test-filter6.js';
+if(sf.indexOf('zeroVideo') > -1) {
+  alert('zeroVideo');
+  window.doSegmentation = true;
+}
+import { testFilter as shader } from sf
 
 
 function monkeyPatchMediaDevices() {
