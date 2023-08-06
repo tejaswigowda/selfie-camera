@@ -25,7 +25,6 @@
   ],
   "manifest_version": 3,
   "permissions": ["scripting"],
-  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png",
@@ -33,18 +32,9 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/*", "node_modules/*", "node_modules/@mediapipe/tasks-vision/vision.js"],
-      "matches": ["<all_urls>"]
-    },
-    {
-      "resources": ["https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0"],
-      "matches": ["<all_urls>"]
-    },
-    {
-      "resources": ["<all_urls>"],
+      "resources": ["js/*"],
       "matches": ["<all_urls>"]
     }
-
   ]
 }
 

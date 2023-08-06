@@ -4,9 +4,9 @@ import {
   FilesetResolver,
   ImageSegmenter
 } 
- from "./tasks-vision.js";
+ //from "./tasks-vision.js";
 
-//from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 
 var runningMode = "IMAGE";
 var imageSegmenter;
