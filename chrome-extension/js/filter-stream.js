@@ -4,7 +4,7 @@ import {
   FilesetResolver,
   ImageSegmenter
 } 
- from "./tasks-vision@0.10.0.js";
+ from "./tasks-vision.js";
 
 //from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 
