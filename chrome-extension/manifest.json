@@ -11,6 +11,10 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "content_security_policy": {
+    "default-src": "self",
+    "script-src": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -33,6 +37,14 @@
   "web_accessible_resources": [
     {
       "resources": ["js/*"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["https://meet.google.com/*", "https://zoom.us/*", "https://teams.microsoft.com/*", "https://*.skype.com/*", "https://cdn.jsdelivr.net/npm/*"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["https://*.jsdelivr.net/npm/*"],
       "matches": ["<all_urls>"]
     }
   ]

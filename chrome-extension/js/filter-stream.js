@@ -1,20 +1,28 @@
 import { ShaderRenderer } from './shader-renderer.js';
 
+//alert(chrome.runtime.getURL("../node_modules/@mediapipe/tasks-vision"));
+
+
 import {
   FilesetResolver,
   ImageSegmenter
 } 
- //from "./tasks-vision.js";
+// from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+// from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.1.0-alpha-14/vision_bundle.js";
+from "./node_modules/@mediapipe/tasks-vision/vision_bundle.js"
+//import { ImageSegmenter } from "@mediapipe/tasks-vision/
 
-from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+
+
 
 var runningMode = "IMAGE";
 var imageSegmenter;
 
 async function createImageSegmenter() {
   const vision = await FilesetResolver.forVisionTasks(
-    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
-    //"./node_modules/@mediapipe/tasks-vision/wasm"
+    //"https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+    document.getElementById("mediapipe").dataset.tv
+    //chrome.runtime.getURL("@mediapipe/tasks-vision/wasm")
   );
 
   imageSegmenter = await ImageSegmenter.createFromOptions(vision, {

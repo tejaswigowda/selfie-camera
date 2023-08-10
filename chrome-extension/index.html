@@ -30,6 +30,13 @@
       <div id="shaderList"></div>
     </div>
     <div id="shaderEditor">
+      <!-- checkbox-->
+      <div class="switch">
+        <label>
+          <input type="checkbox" id="enableSelfie" onchange="enableSelfie(this.checked)">
+          <span class="lever"></span>
+          Enable Selfie
+        </label>
       <div id="editor"></div>
     </div>
   </body>
@@ -63,5 +70,13 @@ body{
   height: 100%;
   background-color: #555;
   color: rgb(128, 186, 236);
-  </style>
+}
+</style>
+<script>
+  function enableSelfie(enable) {
+    // send message to background.js
+    chrome.runtime.sendMessage({doSegmentaion: enable});
+  }
+</script>
+
 </html>
