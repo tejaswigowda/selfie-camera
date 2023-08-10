@@ -44,11 +44,14 @@ async function createImageSegmenter() {
 //createImageSegmenter();
 
 
-
+/*
 window.selfieSegmentation = new SelfieSegmentation({locateFile: (file) => {
   //return document.getElementById("mediapipe").dataset.tv2;
   return "js/selfie_segmentation.js";
 }});
+*/
+
+window.selfieSegmentation = new SelfieSegmentation(document.getElementById("mediapipe").dataset.tv2);
 window.selfieSegmentation.onResults(onResults);
 
 

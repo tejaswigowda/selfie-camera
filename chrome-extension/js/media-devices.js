@@ -1,4 +1,3 @@
-window.doSegmentation = false;
 var outCanvas = document.createElement('canvas');
 window.outCanvas = outCanvas;
 var outCtx = outCanvas.getContext('2d');
@@ -11,6 +10,10 @@ import { FilterStream } from './filter-stream.js';
 
 
 import { testFilter as shader } from './shaders/test-filter2.js';
+window.doSegmentation = false;
+
+// import { testFilter as shader } from './shaders/zeroVideo/test-filter2.js';
+// window.doSegmentation = true;
 
 
 
