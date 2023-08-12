@@ -2,7 +2,7 @@ import { ShaderRenderer } from './shader-renderer.js';
 
 //alert(chrome.runtime.getURL("../node_modules/@mediapipe/tasks-vision"));
 
-/*
+
 import {
   FilesetResolver,
   ImageSegmenter
@@ -11,19 +11,16 @@ import {
 // from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.1.0-alpha-14/vision_bundle.js";
 from "./node_modules/@mediapipe/tasks-vision/vision_bundle.js"
 
-*/
 
-var { FilesetResolver, ImageSegmenter } = 
-await import(document.getElementById("mediapipe").dataset.tv2);
 
 var runningMode = "IMAGE";
 var imageSegmenter;
 
 async function createImageSegmenter() {
   const vision = await FilesetResolver.forVisionTasks(
-    //"https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
     //"./node_modules/@mediapipe/tasks-vision/wasm"
-    document.getElementById("mediapipe").dataset.tv
+    //document.getElementById("mediapipe").dataset.tv
     //chrome.runtime.getURL("@mediapipe/tasks-vision/wasm")
   );
 
@@ -41,18 +38,22 @@ async function createImageSegmenter() {
 
 
 }
-//createImageSegmenter();
+createImageSegmenter();
 
 
-/*
+
 window.selfieSegmentation = new SelfieSegmentation({locateFile: (file) => {
   //return document.getElementById("mediapipe").dataset.tv2;
-  return "js/selfie_segmentation.js";
+  //return "js/selfie_segmentation.js";
+  return "https://cdn.jsdelivr.net/gh/tejaswigowda/selfie-camera@latest/chrome-extension/js/selfie_segmentation.js"
 }});
-*/
 
-window.selfieSegmentation = new SelfieSegmentation(document.getElementById("mediapipe").dataset.tv2);
-window.selfieSegmentation.onResults(onResults);
+
+// window.selfieSegmentation = new SelfieSegmentation(document.getElementById("mediapipe").dataset.tv2);
+//window.selfieSegmentation = new SelfieSegmentation("https://cdn.jsdelivr.net/gh/tejaswigowda/selfie-camera@latest/chrome-extension/js/selfie_segmentation.js");;
+
+
+// window.selfieSegmentation.onResults(onResults);
 
 
 function onResults(results) {
@@ -104,9 +105,7 @@ class FilterStream {
     this.outputStream = window.outCanvas.captureStream();
   }
 
-  async update() {
-
-    await window.selfieSegmentation.send({image: maskCanvas});
+   update() {
 
   if(window.doSegmentation) {
     maskCtx.drawImage(this.video, 0, 0);

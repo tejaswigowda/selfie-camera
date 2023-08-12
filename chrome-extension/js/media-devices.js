@@ -9,11 +9,11 @@ import { FilterStream } from './filter-stream.js';
 
 
 
-import { testFilter as shader } from './shaders/test-filter2.js';
-window.doSegmentation = false;
+// import { testFilter as shader } from './shaders/test-filter2.js';
+// window.doSegmentation = false;
 
-// import { testFilter as shader } from './shaders/zeroVideo/test-filter2.js';
-// window.doSegmentation = true;
+ import { testFilter as shader } from './shaders/zeroVideo/test-filter2.js';
+ window.doSegmentation = true;
 
 
 
